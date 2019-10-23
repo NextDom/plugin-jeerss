@@ -20,24 +20,44 @@ global $listCmdJeeRss;
 
 
 $listCmdJeeRss = array(
-	
+
     array(
         'name' => 'Dernier Titre',
         'type' => 'info',
         'subType' => 'string',
-		'order' => 1,
-		'configuration' => array(
-			'titre' => '',
+        'order' => 1,
+        'configuration' => array(
+            'titre' => '',
         ),
     ),
-	
+
+    array(
+        'name' => '@ Dernier Titre',
+        'type' => 'info',
+        'subType' => 'string',
+        'order' => 2,
+        'configuration' => array(
+            'lien' => '',
+        ),
+    ),
+
     array(
         'name' => 'Titre 9',
         'type' => 'info',
         'subType' => 'string',
-		'order' => 2,
-		'configuration' => array(
-			'titre' => '',
+        'order' => 3,
+        'configuration' => array(
+            'titre' => '',
+        ),
+    ),
+
+    array(
+        'name' => '@ Titre 9',
+        'type' => 'info',
+        'subType' => 'string',
+        'order' => 4,
+        'configuration' => array(
+            'lien' => '',
         ),
     ),
 
@@ -45,87 +65,167 @@ $listCmdJeeRss = array(
         'name' => 'Titre 8',
         'type' => 'info',
         'subType' => 'string',
-		'order' => 3,
-		'configuration' => array(
-			'titre' => '',
+        'order' => 5,
+        'configuration' => array(
+            'titre' => '',
         ),
     ),
-	
+
+    array(
+        'name' => '@ Titre 8',
+        'type' => 'info',
+        'subType' => 'string',
+        'order' => 6,
+        'configuration' => array(
+            'lien' => '',
+        ),
+    ),
+
     array(
         'name' => 'Titre 7',
         'type' => 'info',
         'subType' => 'string',
-		'order' => 4,
-		'configuration' => array(
-			'titre' => '',
+        'order' => 7,
+        'configuration' => array(
+            'titre' => '',
         ),
     ),
-	
+
+    array(
+        'name' => '@ Titre 7',
+        'type' => 'info',
+        'subType' => 'string',
+        'order' => 8,
+        'configuration' => array(
+            'lien' => '',
+        ),
+    ),
+
     array(
         'name' => 'Titre 6',
         'type' => 'info',
         'subType' => 'string',
-		'order' => 5,
-		'configuration' => array(
-			'titre' => '',
+        'order' => 9,
+        'configuration' => array(
+            'titre' => '',
         ),
     ),
-	
+
+    array(
+        'name' => '@ Titre 6',
+        'type' => 'info',
+        'subType' => 'string',
+        'order' => 10,
+        'configuration' => array(
+            'lien' => '',
+        ),
+    ),
+
     array(
         'name' => 'Titre 5',
         'type' => 'info',
         'subType' => 'string',
-		'order' => 6,
-		'configuration' => array(
-			'titre' => '',
+        'order' => 11,
+        'configuration' => array(
+            'titre' => '',
         ),
     ),
-	
+
+    array(
+        'name' => '@ Titre 5',
+        'type' => 'info',
+        'subType' => 'string',
+        'order' => 12,
+        'configuration' => array(
+            'lien' => '',
+        ),
+    ),
+
     array(
         'name' => 'Titre 4',
         'type' => 'info',
         'subType' => 'string',
-		'order' => 7,
-		'configuration' => array(
-			'titre' => '',
+        'order' => 13,
+        'configuration' => array(
+            'titre' => '',
         ),
     ),
-	
+
+    array(
+        'name' => '@ Titre 4',
+        'type' => 'info',
+        'subType' => 'string',
+        'order' => 14,
+        'configuration' => array(
+            'lien' => '',
+        ),
+    ),
+
     array(
         'name' => 'Titre 3',
         'type' => 'info',
         'subType' => 'string',
-		'order' => 8,
-		'configuration' => array(
-			'titre' => '',
+        'order' => 15,
+        'configuration' => array(
+            'titre' => '',
         ),
     ),
-	
+
+    array(
+        'name' => '@ Titre 3',
+        'type' => 'info',
+        'subType' => 'string',
+        'order' => 16,
+        'configuration' => array(
+            'lien' => '',
+        ),
+    ),
+
     array(
         'name' => 'Titre 2',
         'type' => 'info',
         'subType' => 'string',
-		'order' => 9,
-		'configuration' => array(
-			'titre' => '',
+        'order' => 17,
+        'configuration' => array(
+            'titre' => '',
         ),
     ),
-	
+
+    array(
+        'name' => '@ Titre 2',
+        'type' => 'info',
+        'subType' => 'string',
+        'order' => 18,
+        'configuration' => array(
+            'lien' => '',
+        ),
+    ),
+
     array(
         'name' => 'Titre 1',
         'type' => 'info',
         'subType' => 'string',
-		'order' => 10,
-		'configuration' => array(
-			'titre' => '',
+        'order' => 19,
+        'configuration' => array(
+            'titre' => '',
         ),
     ),
-	
-	array(
+
+    array(
+        'name' => '@ Titre 1',
+        'type' => 'info',
+        'subType' => 'string',
+        'order' => 20,
+        'configuration' => array(
+            'lien' => '',
+        ),
+    ),
+
+    array(
         'name' => 'Refresh',
         'type' => 'action',
         'subType' => 'other',
-		'order' => 11,
+        'order' => 21,
     ),
-	
+
 );
