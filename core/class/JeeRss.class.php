@@ -231,7 +231,6 @@ class JeeRss extends eqLogic {
     }
 
     public function postSave() {
-        JeeRss::autoAjoutCommande();
         if (!$this->getId())
             return;
     }
