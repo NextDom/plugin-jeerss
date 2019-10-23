@@ -23,22 +23,26 @@ function JeeRss_install() {
 }
 
 function JeeRss_update() {
-		JeeRss::autoAjoutCommande();
-		if (JeeRss::getConfiguration('vitesse') == null) {
-			JeeRss::setConfiguration('vitesse', 4);
-		}
-		if (JeeRss::getConfiguration('nb_flux') == null) {
-			JeeRss::setConfiguration('nb_flux', 5);
-		}
-		if (JeeRss::getConfiguration('frequence') == null) {
-			JeeRss::setConfiguration('frequence', "30m");
-		}
-		if (JeeRss::getConfiguration('sens') == null) {
-			JeeRss::setConfiguration('sens', "left");
-		}
-		if (JeeRss::getConfiguration('espacement_flux') == null) {
-			JeeRss::setConfiguration('espacement_flux', 1);
-		}
+	JeeRss::autoAjoutCommande();
+        JeeRss::setConfiguration('fg_color', "#0080FF");
+        if (JeeRss::getConfiguration('vitesse') == null) {
+            JeeRss::setConfiguration('vitesse', 4);
+        }
+        if (JeeRss::getConfiguration('nb_flux') == null) {
+            JeeRss::setConfiguration('nb_flux', 5);
+        }
+        if (JeeRss::getConfiguration('frequence') == null) {
+            JeeRss::setConfiguration('frequence', "30m");
+        }
+        if (JeeRss::getConfiguration('sens') == null) {
+            JeeRss::setConfiguration('sens', "left");
+        }
+        if (JeeRss::getConfiguration('espacement_flux') == null) {
+            JeeRss::setConfiguration('espacement_flux', 1);
+        }
+        if (JeeRss::getConfiguration('taille') == null) {
+            JeeRss::setConfiguration('taille', 100);
+        }
 }
 
 
