@@ -176,23 +176,29 @@ class JeeRss extends eqLogic {
     /*     * *********************Méthodes d'instance************************* */
 
     public function preInsert() {
+        JeeRss::setIsVisible(1);
+        JeeRss::setIsEnable(1);
+
         if (JeeRss::getConfiguration('fg_color') == null) {
-            JeeRss::setConfiguration('fg_color', "#ffffff");
+            JeeRss::setConfiguration('fg_color', "#0080FF");
         }
-        if (JeeRss::getConfiguration('vitesse') === null) {
+        if (JeeRss::getConfiguration('vitesse') == null) {
             JeeRss::setConfiguration('vitesse', 4);
         }
-        if (JeeRss::getConfiguration('nb_flux') === null) {
+        if (JeeRss::getConfiguration('nb_flux') == null) {
             JeeRss::setConfiguration('nb_flux', 5);
         }
-        if (JeeRss::getConfiguration('frequence') === null) {
+        if (JeeRss::getConfiguration('frequence') == null) {
             JeeRss::setConfiguration('frequence', "30m");
         }
-        if (JeeRss::getConfiguration('sens') === null) {
+        if (JeeRss::getConfiguration('sens') == null) {
             JeeRss::setConfiguration('sens', "left");
         }
-        if (JeeRss::getConfiguration('espacement_flux') === null) {
+        if (JeeRss::getConfiguration('espacement_flux') == null) {
             JeeRss::setConfiguration('espacement_flux', 1);
+        }
+        if (JeeRss::getConfiguration('taille') == null) {
+            JeeRss::setConfiguration('taille', 100);
         }
     }
 
@@ -202,22 +208,25 @@ class JeeRss extends eqLogic {
 
     public function preSave() {
         if (JeeRss::getConfiguration('fg_color') == null) {
-            JeeRss::setConfiguration('fg_color', "#ffffff");
+            JeeRss::setConfiguration('fg_color', "#0080FF");
         }
-        if (JeeRss::getConfiguration('vitesse') === null) {
+        if (JeeRss::getConfiguration('vitesse') == null) {
             JeeRss::setConfiguration('vitesse', 4);
         }
-        if (JeeRss::getConfiguration('nb_flux') === null) {
+        if (JeeRss::getConfiguration('nb_flux') == null) {
             JeeRss::setConfiguration('nb_flux', 5);
         }
-        if (JeeRss::getConfiguration('frequence') === null) {
+        if (JeeRss::getConfiguration('frequence') == null) {
             JeeRss::setConfiguration('frequence', "30m");
         }
-        if (JeeRss::getConfiguration('sens') === null) {
+        if (JeeRss::getConfiguration('sens') == null) {
             JeeRss::setConfiguration('sens', "left");
         }
-        if (JeeRss::getConfiguration('espacement_flux') === null) {
+        if (JeeRss::getConfiguration('espacement_flux') == null) {
             JeeRss::setConfiguration('espacement_flux', 1);
+        }
+        if (JeeRss::getConfiguration('taille') == null) {
+            JeeRss::setConfiguration('taille', 100);
         }
     }
 
@@ -280,7 +289,7 @@ class JeeRss extends eqLogic {
 
             if ($auto == 0) {
                 $taille = JeeRss::getConfiguration('taille');
-                $replace['#width#'] = $taille . '%';
+                $replace['#width#'] = ($taille - 1 ) . '%';
             }
 
             if ($espacement_flux < 1) {
@@ -370,16 +379,25 @@ class JeeRss extends eqLogic {
         $fichier = realpath(dirname(__FILE__) . '/../../core/config') . '/' . JeeRss::getId();
         $rss     = JeeRss::lecture_rss("$fichier", array("title", "link", "description", "pubDate"));
         $i       = 0;
+        $p       = 0;
         foreach (eqLogic::getCmd('info') as $info) {
             $title = html_entity_decode($rss[$i][0]);
             if (isset($rss[$i][0]) == false){
                 $i++;
             }
             $title = html_entity_decode($rss[$i][0]);
-            $i++;
-            $info->setConfiguration('titre', $title);
-            $info->save();
-            $info->event($title);
+            $link = html_entity_decode($rss[$i][1]);
+            if ($p%2 == 1) {
+                $info->setConfiguration('lien', $link);
+                $info->save();
+                $info->event($link);
+                $i++;
+            } else {
+                $info->setConfiguration('titre', $title);
+                $info->save();
+                $info->event($title);
+            }
+            $p++;
         }
         return $rss;
     }
@@ -422,6 +440,7 @@ class JeeRss extends eqLogic {
                 $JeeRssCmd->setSubType($cmd['subType']);
                 $JeeRssCmd->setOrder($cmd['order']);
                 $JeeRssCmd->setConfiguration('titre', $cmd['configuration']['titre']);
+                $JeeRssCmd->setConfiguration('lien', $cmd['configuration']['lien']);
                 $JeeRssCmd->save();
             }
 
