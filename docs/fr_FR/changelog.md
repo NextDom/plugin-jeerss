@@ -1,6 +1,11 @@
 Changelog détaillé :
 <https://github.com/Jeedom-Plugins-Extra/plugin-jeerss/commits/master>
 
+23-10-2019 11:00
+===
+
+-   ajout info lien pour scenario
+
 16-08-2019 11:00
 ===
 
