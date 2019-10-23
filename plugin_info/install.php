@@ -24,7 +24,7 @@ function JeeRss_install() {
 
 function JeeRss_update() {
 	foreach (eqLogic::byType('JeeRss') as $eqLogic) {
-		JeeRss::autoAjoutCommande();
+		$this->autoAjoutCommande();
 		$eqLogic->setConfiguration('fg_color', "#0080FF");
 		$eqLogic->save();
 	}
