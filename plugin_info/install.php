@@ -23,26 +23,29 @@ function JeeRss_install() {
 }
 
 function JeeRss_update() {
-	JeeRss::autoAjoutCommande();
-        JeeRss::setConfiguration('fg_color', "#0080FF");
-        if (JeeRss::getConfiguration('vitesse') == null) {
-            JeeRss::setConfiguration('vitesse', 4);
-        }
-        if (JeeRss::getConfiguration('nb_flux') == null) {
-            JeeRss::setConfiguration('nb_flux', 5);
-        }
-        if (JeeRss::getConfiguration('frequence') == null) {
-            JeeRss::setConfiguration('frequence', "30m");
-        }
-        if (JeeRss::getConfiguration('sens') == null) {
-            JeeRss::setConfiguration('sens', "left");
-        }
-        if (JeeRss::getConfiguration('espacement_flux') == null) {
-            JeeRss::setConfiguration('espacement_flux', 1);
-        }
-        if (JeeRss::getConfiguration('taille') == null) {
-            JeeRss::setConfiguration('taille', 100);
-        }
+	foreach (eqLogic::byType('JeeRss') as $eqLogic) {
+		$eqLogic->autoAjoutCommande();
+		$eqLogic->setConfiguration('fg_color', "#0080FF");
+		if ($eqLogic->getConfiguration('vitesse') == null) {
+		    $eqLogic->setConfiguration('vitesse', 4);
+		}
+		if ($eqLogic->getConfiguration('nb_flux') == null) {
+		    $eqLogic->setConfiguration('nb_flux', 5);
+		}
+		if ($eqLogic->getConfiguration('frequence') == null) {
+		    $eqLogic->setConfiguration('frequence', "30m");
+		}
+		if ($eqLogic->getConfiguration('sens') == null) {
+		    $eqLogic->setConfiguration('sens', "left");
+		}
+		if ($eqLogic->getConfiguration('espacement_flux') == null) {
+		    $eqLogic->setConfiguration('espacement_flux', 1);
+		}
+		if ($eqLogic->getConfiguration('taille') == null) {
+		    $eqLogic->setConfiguration('taille', 100);
+		}
+		$eqLogic->save();
+	}
 }
 
 
