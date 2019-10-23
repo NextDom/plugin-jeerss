@@ -35,7 +35,12 @@
      tr += '<span style="display: none;" class="subType" subType="' + init(_cmd.subType) + '"></span>';
      tr += '</td>';
      tr += '<td>';
-	 tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="titre" style="margin-bottom : 5px;width : 100%; display : inline-block;" />';
+     if (_cmd.name.indexOf("@ ")) {
+         tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="titre" style="margin-bottom : 5px;width : 100%; display : inline-block;" />';
+     }
+     else {
+         tr += '<input class="cmdAttr form-control input-sm" data-l1key="configuration" data-l2key="lien" style="margin-bottom : 5px;width : 100%; display : inline-block;" />';
+     }
      tr += '</td>';
      tr += '<td>';
      tr += '<span><label class="checkbox-inline"><input type="checkbox" class="cmdAttr" data-l1key="isVisible" checked/>{{Afficher}}</label></span> ';
